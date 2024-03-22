@@ -34,11 +34,26 @@ SELECT `news`.`title`, `news`.`date_created`, `user`.`login`, `user`.`thename`
 		ON `news`.`user_iduser` = `user`.`iduser`
         ;
         
+        
+# Jointures externes : LEFT JOIN :
+# Sélectionne tous les articles, même ceux sans user 
+
 # on sélectionne les champs title, date_created de la table news ainsi que le login et thename de la table user, même lorsque une news n'a pas d'utilisateur.
 
 SELECT `news`.`title`, `news`.`date_created`, `user`.`login`, `user`.`thename`
 	FROM `news`
 	LEFT JOIN `user`
+		ON `news`.`user_iduser` = `user`.`iduser`
+        ;
+	
+# Jointures externes : RIGHT JOIN :
+# Sélectionne les articles et les users, même ceux qui n'ont pas écrit d'articles
+
+# on sélectionne les champs title, date_created de la table news ainsi que le login et thename de la table user, et ce même pour les users qui n'ont pas d'articles.
+
+SELECT `news`.`title`, `news`.`date_created`, `user`.`login`, `user`.`thename`
+	FROM `news`
+	RIGHT JOIN `user`
 		ON `news`.`user_iduser` = `user`.`iduser`
         ;
 

@@ -30,4 +30,4 @@ Merci au site https://fr.wikipedia.org/wiki/Astronomie pour les exemples d'artic
 
 - `Mikhawa` / `Mikhawa`
 - `PierreSandron` / `PierreSandron`
-
+- `Magib` / `Magib`
