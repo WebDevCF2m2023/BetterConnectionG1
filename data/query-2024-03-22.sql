@@ -22,3 +22,10 @@ SELECT `login`, `thename` FROM `user`;
 SELECT `idcategory`,`title`,`slug` 
 	FROM `category`
     ORDER BY `slug` ASC;
+
+#on sélectionne les champs title, date_created, de la table news ainsi que le login et thename de la table user, uniquement lorsque une news a un utilisateur
+
+SELECT `news`.`title`, `news`.`date_created`, `user`.`login`, `user`.`thename` 
+FROM news
+INNER JOIN `user`
+	ON `news`.`user_iduser` = `user`.`iduser`;
