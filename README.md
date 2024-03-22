@@ -7,6 +7,9 @@ Ce projet sera réalisé en utilisant le modèle MVC (Modèle-Vue-Contrôleur) p
 
 ![MVC](https://raw.githubusercontent.com/WebDevCF2m2023/OneConnectionG2/main/public/img/MVC.png)
 
+## Les jointures
+![join](https://raw.githubusercontent.com/WebDevCF2m2023/BetterConnectionG1/main/public/img/sql-joins.jpg)
+
 ## Scripts disponibles
 
 ### `uniqid()`
@@ -27,4 +30,4 @@ Merci au site https://fr.wikipedia.org/wiki/Astronomie pour les exemples d'artic
 
 - `Mikhawa` / `Mikhawa`
 - `PierreSandron` / `PierreSandron`
-
+- `Magib` / `Magib`
