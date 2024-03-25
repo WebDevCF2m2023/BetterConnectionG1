@@ -57,3 +57,18 @@ SELECT `news`.`title`, `news`.`date_created`, `user`.`login`, `user`.`thename`
 		ON `news`.`user_iduser` = `user`.`iduser`
         ;
 
+# on sélectionne les champs title, date_created de la table news ainsi que le login et thename de la table user, uniquement lorsque une news a un utilisateur. On récupère également les category.title et category.slug Si la news a des catégories (on affiche la news si elle n'a pas de catégorie
+
+SELECT `news`.`title`, `news`.`date_created`, 
+		`user`.`login`, `user`.`thename`,
+        `category`.`title`, `category`.`slug`
+	FROM `news`
+	INNER JOIN `user`
+		ON `news`.`user_iduser` = `user`.`iduser`
+	LEFT JOIN `news_has_category`
+		ON `news_has_category`.`news_idnews` = `news`.`idnews`
+	LEFT JOIN `category`
+		ON `news_has_category`.`category_idcategory` = `category`.`idcategory`
+        ;
+        
+        
