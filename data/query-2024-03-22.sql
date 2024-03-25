@@ -45,9 +45,9 @@ SELECT `news`.`title`, `news`.`date_created`, `user`.`login`, `user`.`thename` F
 SELECT * FROM `news_has_category`;
 
 # on insert dans la table news_has_category (news_idnews,category_idcategory) avec (2,4)
-INSERT INTO `news_has_category` 
-(`news_idnews`,`category_idcategory`) 
-VALUES (2,4); # Erreur car paire de clefs dèja existante !
+#INSERT INTO `news_has_category` 
+#(`news_idnews`,`category_idcategory`) 
+#VALUES (2,4); # Erreur car paire de clefs dèja existante !
 
 # on sélectionne les champs login et thename de la table user
 SELECT `login`, `thename` FROM `user`;
