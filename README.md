@@ -7,6 +7,11 @@ Ce projet sera réalisé en utilisant le modèle MVC (Modèle-Vue-Contrôleur) p
 
 ![MVC](https://raw.githubusercontent.com/WebDevCF2m2023/OneConnectionG2/main/public/img/MVC.png)
 
+## Les jointures
+![join](https://raw.githubusercontent.com/WebDevCF2m2023/BetterConnectionG1/main/public/img/sql-joins.jpg)
+
+Avec quelques exemples dans `data/query-2024-03-22.sql`.
+
 ## Scripts disponibles
 
 ### `uniqid()`
@@ -27,4 +32,16 @@ Merci au site https://fr.wikipedia.org/wiki/Astronomie pour les exemples d'artic
 
 - `Mikhawa` / `Mikhawa`
 - `PierreSandron` / `PierreSandron`
+- `Magib` / `Magib`
 
+## Liste de tâches
+
+### EXE1
+- Création d'un fichier de configuration `config.php` avec les constantes de connexion à la DB
+    - Mise dans le .gitignore
+    - Création d'un fichier `config.php.ini`
+- Création du contrôleur frontal
+    - Import du fichier `config.php`
+    - Création d'une connexion PDO avec try catch
+    - requête qui séléctionne tous les articles avec les auteurs (si existant)
+    - affichage dans une boucle while des résultats.
