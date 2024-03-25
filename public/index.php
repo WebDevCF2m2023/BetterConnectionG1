@@ -11,4 +11,8 @@ try {
 
 $getNews = getTheNews($db);
 
-var_dump($getNews);
+if (isset($getNews)) {
+    include("../view/newsView.php");
+}else {
+    echo "Something went wrong";
+}
