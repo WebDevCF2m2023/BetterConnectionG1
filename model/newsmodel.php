@@ -1,6 +1,6 @@
 <?php
 
-function getTheNews (PDO $db) {
+function getTheNews (PDO $db){
 
 
         $sql = "SELECT * FROM news n
