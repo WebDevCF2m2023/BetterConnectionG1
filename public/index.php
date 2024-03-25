@@ -12,6 +12,7 @@ try {
 $getNews = getTheNews($db);
 
 if (isset($getNews)) {
+    $title = "This is the News";
     include("../view/newsView.php");
 }else {
     echo "Something went wrong";
