@@ -29,17 +29,3 @@ select * from `category`;
  from `news`
  inner join `user`
  on `news`.`user_iduser`=`user`.`iduser`
-
-
-# on selectionne les champs title date_created de la table news ainsi que le login et thename de la table user, uniquement lorsque une news a un utilisateur on recupere egalement les category.title et category.slug si la news a des categories on affiche la news si elle n a pas de categorie
-
-select n.`title`, n.`date_created`,
-u.`login`,u.`thename`,
-c.`title` as categ_title, c.`slug`
-from `news` n
-inner join `user` u
-on n.`user_iduser` = u.`iduser`
-left join `news_has_category` h
-on h.`news_idnews` = n.`idnews`
-left join `category` c
-on h.`category_idcategory` = c.`idcategory`;
