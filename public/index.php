@@ -7,6 +7,11 @@ require_once "../config.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exe1</title>
+    <style>  
+table, th, td {  
+    border: 1px solid grey;  
+}  
+</style> 
 </head>
 <body>
 
@@ -22,13 +27,23 @@ try{
 }
 
 
-$sql = "SELECT * FROM news INNER JOIN user ON news.idnews = user.iduser"; 
+$sql = "SELECT * FROM news INNER JOIN user ON news.user_iduser = user.iduser"; 
 
 $query = $db->query($sql); 
 
 while($item = $query->fetch(PDO::FETCH_ASSOC)){
-    echo "<h1>$item[login]</h1>";
-    echo "<p>$item[content]</p>";
+
+    echo "
+    <table>
+    <tr>
+        <th>user</th> 
+        <th>item</th>
+    </tr>
+    <tr>
+        <td>$item[login]</td> 
+        <td>$item[content]</td>
+    </tr>
+    </table>";      
 }
 ?>
     
