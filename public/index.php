@@ -29,8 +29,9 @@ try {
 
 // chargement des catégories pour le menu
 $menuSlug = getAllCategoriesBySlug($db);
+$news = getAllNews($db);
 
-// var_dump($menuSlug);
+var_dump($news);
 
 /*
 Appel de la vue
