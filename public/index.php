@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 require_once '../config.php';
 
 
@@ -18,3 +19,6 @@ try {
 } catch (PDOException $e) {
     echo "Erreur de connexion : " . $e->getMessage();
 }
+=======
+require_once("../config.php");
+>>>>>>> fb50f2b36ea71d4137521a6a8eea52af47f03add
