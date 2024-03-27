@@ -182,8 +182,8 @@ SELECT n.`title`, n.`date_created`,
 SELECT n.title, n.date_created, 
 		u.login, u.thename,
         GROUP_CONCAT(c.idcategory) AS idcategory, 
-        GROUP_CONCAT(c.title SEPARATOR '|||') AS categ_title, 
-        GROUP_CONCAT(c.slug SEPARATOR '|||') AS categ_slug
+		GROUP_CONCAT(c.title SEPARATOR '|||') AS categ_title, 
+       GROUP_CONCAT(c.slug SEPARATOR '|||') AS categ_slug
 	FROM news n
 	LEFT JOIN `user` u
 		ON n.user_iduser = u.iduser
