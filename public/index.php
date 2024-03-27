@@ -10,6 +10,7 @@ chargement des dépendances
 */
 
 require_once("../config.php");
+require_once("../model/CategoryModel.php");
 
 /*
 Connexion PDO
@@ -24,7 +25,12 @@ try {
 } catch (Exception $e) {
     // Gestion de l'erreur
     die($e->getMessage());
-}    
+}
+
+// chargement des catégories pour le menu
+$menuSlug = getAllCategoriesBySlug($db);
+
+// var_dump($menuSlug);
 
 /*
 Appel de la vue

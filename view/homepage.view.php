@@ -23,8 +23,10 @@ require_once "menu.view.php";
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Clean Blog</h1>
-                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                            <h1>homepage</h1>
+                            <span class="subheading">Petit exercice</span>
+                            <p>Dans model/NewsModel.php, créez une fonction qui va charger toutes les News publiées avec le titre, la date de publication, les 250 premiers caractères de l'article (si possible ne pas couper dans les mots ), thename de l'auteur par ordre de publication décroissante. rajouter les catégories si possible (même liens que dans le menu)</p>
+                            <p>affichez ces articles à la place des faux articles ci-dessous</p>
                         </div>
                     </div>
                 </div>
