@@ -91,4 +91,86 @@ SELECT `news`.`title`, `news`.`date_created`, `user`.`login`, `user`.`thename`
 		ON `news`.`user_iduser` = `user`.`iduser`
         ;
 
+<<<<<<< HEAD
 >>>>>>> 920d551bef0d9f84bc8fa9914bb95cdf4ad04009
+=======
+# on sélectionne les champs title, date_created de la table news ainsi que le login et thename de la table user, uniquement lorsque une news a un utilisateur. On récupère également les category.title et category.slug Si la news a des catégories (on affiche la news si elle n'a pas de catégorie
+
+SELECT `news`.`title`, `news`.`date_created`, 
+		`user`.`login`, `user`.`thename`,
+        `category`.`title`, `category`.`slug`
+	FROM `news`
+	INNER JOIN `user`
+		ON `news`.`user_iduser` = `user`.`iduser`
+	LEFT JOIN `news_has_category`
+		ON `news_has_category`.`news_idnews` = `news`.`idnews`
+	LEFT JOIN `category`
+		ON `news_has_category`.`category_idcategory` = `category`.`idcategory`
+        ;
+      
+# on sélectionne les champs title, date_created de la table news ainsi que le login et thename de la table user, uniquement lorsque une news a un utilisateur. On récupère également les category.title et category.slug Si la news a des catégories (on affiche la news si elle n'a pas de catégorie avec ALIAS de sortie pour éviter les doublons sur title
+
+SELECT `news`.`title`, `news`.`date_created`, 
+		`user`.`login`, `user`.`thename`,
+        `category`.`title` AS categ_title, `category`.`slug`
+	FROM `news`
+	INNER JOIN `user`
+		ON `news`.`user_iduser` = `user`.`iduser`
+	LEFT JOIN `news_has_category`
+		ON `news_has_category`.`news_idnews` = `news`.`idnews`
+	LEFT JOIN `category`
+		ON `news_has_category`.`category_idcategory` = `category`.`idcategory`
+        ;
+        
+# on sélectionne les champs title, date_created de la table news ainsi que le login et thename de la table user, uniquement lorsque une news a un utilisateur. On récupère également les category.idcategory category.title et category.slug Si la news a des catégories (on affiche la news si elle n'a pas de catégorie avec ALIAS de sortie pour éviter les doublons sur title. On va créer des alias internes, ce sont des alias pour le nom des tables, pas pour la sortie. Ov va grouper par la clef primaire ou l'* de news.
+
+SELECT n.`title`, n.`date_created`, 
+		u.`login`, u.`thename`,
+        GROUP_CONCAT(c.`idcategory`) AS idcategory, 
+        GROUP_CONCAT(c.title SEPARATOR '|||') AS categ_title, 
+        GROUP_CONCAT(c.slug SEPARATOR '|||') AS categ_slug
+	FROM `news` n
+	INNER JOIN `user` u
+		ON n.`user_iduser` = u.`iduser`
+	LEFT JOIN `news_has_category` h
+		ON h.`news_idnews` = n.`idnews`
+	LEFT JOIN `category` c
+		ON h.`category_idcategory` = c.`idcategory`
+	GROUP BY n.idnews
+        ;
+        
+# on sélectionne les champs title, date_created de la table news ainsi que le login et thename de la table user, avec user facultatif. On récupère également les category.idcategory category.title et category.slug Si la news a des catégories (on affiche la news si elle n'a pas de catégorie avec ALIAS de sortie pour éviter les doublons sur title. On va créer des alias internes, ce sont des alias pour le nom des tables, pas pour la sortie. Ov va grouper par la clef primaire ou l'* de news.
+
+SELECT n.title, n.date_created, 
+		u.login, u.thename,
+        GROUP_CONCAT(c.idcategory) AS idcategory, 
+        GROUP_CONCAT(c.title SEPARATOR '|||') AS categ_title, 
+        GROUP_CONCAT(c.slug SEPARATOR '|||') AS categ_slug
+	FROM news n
+	LEFT JOIN `user` u
+		ON n.user_iduser = u.iduser
+	LEFT JOIN news_has_category h
+		ON h.news_idnews = n.idnews
+	LEFT JOIN category c
+		ON h.category_idcategory = c.idcategory
+	GROUP BY n.idnews
+        ;
+
+# idem mais quand l'article est publié        
+SELECT n.title, n.date_created, 
+		u.login, u.thename,
+        GROUP_CONCAT(c.idcategory) AS idcategory, 
+        GROUP_CONCAT(c.title SEPARATOR '|||') AS categ_title, 
+        GROUP_CONCAT(c.slug SEPARATOR '|||') AS categ_slug
+	FROM news n
+	LEFT JOIN `user` u
+		ON n.user_iduser = u.iduser
+	LEFT JOIN news_has_category h
+		ON h.news_idnews = n.idnews
+	LEFT JOIN category c
+		ON h.category_idcategory = c.idcategory
+	WHERE n.is_published = 1 AND n.idnews = 2
+	GROUP BY n.idnews
+
+        ;
+>>>>>>> fb50f2b36ea71d4137521a6a8eea52af47f03add
