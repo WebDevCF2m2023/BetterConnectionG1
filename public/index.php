@@ -5,6 +5,7 @@
 //Chargement des dépendances
 
 require_once("../config.php");
+require_once("../model/CategoryModel.php");
 
 //Connexion PDO
 
@@ -18,6 +19,10 @@ try {
     die($e->getMessage());
 }
 
+// chargement des catégory pour le menu 
+$menuSlug = getAllCategoriesBySlug($db);
+
+//var_dump($menuSlug);
 
 //Appel de la vue 
 

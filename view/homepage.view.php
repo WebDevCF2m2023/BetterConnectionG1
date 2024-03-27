@@ -23,8 +23,13 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Clean Blog</h1>
-                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                            <h1>Homepage</h1>
+                            <span class="subheading">Petit exercice</span>
+                            <p>Dans model/NewsModel.php, créez une fonction qui va charger toute les news publlié
+                                avec le titre, la  date de publication, les 250 premiers caractères de l'article(si possible ne pas couper dans les mots)
+                                l'auteur par ordre de publication décroissante. Rajouter les catégories si possible (même lien que dans le menu) 
+                            </p>
+                            <p>Affichez ces articles à la place des faux articles ci dessous</p>
                         </div>
                     </div>
                 </div>
