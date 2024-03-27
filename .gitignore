@@ -1,4 +1,8 @@
 .idea
 data/BetterConnectionG1.mwb.bak
+<<<<<<< HEAD
 config.php
 config.php.ini
+=======
+config.php
+>>>>>>> fb50f2b36ea71d4137521a6a8eea52af47f03add

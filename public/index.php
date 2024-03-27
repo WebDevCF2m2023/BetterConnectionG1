@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
     require_once "../config.php";
 
@@ -29,3 +30,8 @@ while($item = $query->fetch(PDO::FETCH_ASSOC)){
 
 
 $db = null;
+=======
+<?php
+
+require_once("../config.php");
+>>>>>>> fb50f2b36ea71d4137521a6a8eea52af47f03add
