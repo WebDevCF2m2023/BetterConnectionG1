@@ -106,16 +106,18 @@ SELECT n.`title`, n.`date_created`,
 
 SELECT n.title, n.date_created, 
 		u.login, u.thename,
-        GROUP_CONCAT(c.idcategory) AS idcategory, 
-        GROUP_CONCAT(c.title SEPARATOR '|||') AS categ_title, 
-        GROUP_CONCAT(c.slug SEPARATOR '|||') AS categ_slug
+        GROUP_CONCAT(ca.idcategory) AS idcategory, 
+        GROUP_CONCAT(ca.title SEPARATOR '|||') AS categ_title, 
+        GROUP_CONCAT(ca.slug SEPARATOR '|||') AS categ_slug
 	FROM news n
 	LEFT JOIN `user` u
 		ON n.user_iduser = u.iduser
 	LEFT JOIN news_has_category h
 		ON h.news_idnews = n.idnews
-	LEFT JOIN category c
-		ON h.category_idcategory = c.idcategory
+	LEFT JOIN category ca
+		ON h.category_idcategory = ca.idcategory
+	LEFT JOIN image i 
+		ON i.news_idnews = n.idnews
 	GROUP BY n.idnews
         ;
 
