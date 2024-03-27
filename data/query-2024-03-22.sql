@@ -7,7 +7,7 @@ SELECT * FROM `news`;
 # On affiche tous les champs de la table user
 SELECT * FROM `user`;
 
-<<<<<<< HEAD
+
 # On affiche tous les champs de la table news_has_category
 SELECT * FROM `news_has_category`;
 
@@ -40,7 +40,7 @@ SELECT `news`.`title`, `news`.`date_created`, `user`.`login`, `user`.`thename` F
 
 SELECT `news`.`title`, `news`.`date_created`, `user`.`login`, `user`.`thename` FROM `news` RIGHT JOIN `user` ON `news`.`user_iduser`=`user`.`iduser`;
  
-=======
+
 # on affiche tous les champs de la table news_has_category
 SELECT * FROM `news_has_category`;
 
@@ -91,9 +91,7 @@ SELECT `news`.`title`, `news`.`date_created`, `user`.`login`, `user`.`thename`
 		ON `news`.`user_iduser` = `user`.`iduser`
         ;
 
-<<<<<<< HEAD
->>>>>>> 920d551bef0d9f84bc8fa9914bb95cdf4ad04009
-=======
+
 # on sélectionne les champs title, date_created de la table news ainsi que le login et thename de la table user, uniquement lorsque une news a un utilisateur. On récupère également les category.title et category.slug Si la news a des catégories (on affiche la news si elle n'a pas de catégorie
 
 SELECT `news`.`title`, `news`.`date_created`, 
@@ -173,4 +171,4 @@ SELECT n.title, n.date_created,
 	GROUP BY n.idnews
 
         ;
->>>>>>> fb50f2b36ea71d4137521a6a8eea52af47f03add
+
