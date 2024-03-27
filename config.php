@@ -1,10 +1,10 @@
 <?php
 
 // constantes de connexions
-const MY_DB_DRIVER = "mysql";
-const MY_DB_HOST = "localhost";
-const MY_DB_PORT = 3306;
-const MY_DB_CHARSET = "utf8mb4";
-const MY_DB_NAME = "betterconnectiong1";
-const MY_DB_PWD = "";
-const MY_DB_LOGIN = "root";
+const DB_DRIVER = "mysql";
+const DB_HOST = "localhost";
+const DB_PORT = 3306;
+const DB_CHARSET = "utf8mb4";
+const DB_NAME = "betterconnectiong1";
+const DB_PWD = "";
+const DB_LOGIN = "root";
