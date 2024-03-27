@@ -7,8 +7,6 @@
 require_once("../config.php");
 require_once("../model/CategoryModel.php");
 
-//Connexion PDO
-
 try {
     //Instanciation de la connexion PDO
     $db = new PDO(MY_DB_DRIVER . ":host=" . MY_DB_HOST . ";dbname=" . MY_DB_NAME . ";port=" . MY_DB_PORT . ";charset=" . MY_DB_CHARSET, MY_DB_LOGIN, MY_DB_PWD);
@@ -19,13 +17,15 @@ try {
     die($e->getMessage());
 }
 
-// chargement des catégory pour le menu 
+
+// chargement des catégories pour le menu
 $menuSlug = getAllCategoriesBySlug($db);
 
-//var_dump($menuSlug);
+// var_dump($menuSlug);
 
-//Appel de la vue 
-
+/*
+Appel de la vue
+*/
 include_once "../view/homepage.view.php";
 
 //Fermeture de connexion

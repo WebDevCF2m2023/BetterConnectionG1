@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <title>BetterConnection homepage</title>
+    <title>BetterConnection | homepage</title>
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -15,7 +15,7 @@
 </head>
 <body>
     <?php
-    require_once "menu.view.php";
+require_once "menu.view.php";
     ?>
         <!-- Page Header-->
         <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
@@ -23,13 +23,10 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Homepage</h1>
+                            <h1>homepage</h1>
                             <span class="subheading">Petit exercice</span>
-                            <p>Dans model/NewsModel.php, créez une fonction qui va charger toute les news publlié
-                                avec le titre, la  date de publication, les 250 premiers caractères de l'article(si possible ne pas couper dans les mots)
-                                l'auteur par ordre de publication décroissante. Rajouter les catégories si possible (même lien que dans le menu) 
-                            </p>
-                            <p>Affichez ces articles à la place des faux articles ci dessous</p>
+                            <p>Dans model/NewsModel.php, créez une fonction qui va charger toutes les News publiées avec le titre, la date de publication, les 250 premiers caractères de l'article (si possible ne pas couper dans les mots ), thename de l'auteur par ordre de publication décroissante. rajouter les catégories si possible (même liens que dans le menu)</p>
+                            <p>affichez ces articles à la place des faux articles ci-dessous</p>
                         </div>
                     </div>
                 </div>
