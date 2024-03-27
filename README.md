@@ -44,4 +44,13 @@ Merci au site https://fr.wikipedia.org/wiki/Astronomie pour les exemples d'artic
     - Import du fichier `config.php`
     - Création d'une connexion PDO avec try catch
     - requête qui séléctionne tous les articles avec les auteurs (si existant)
-    - affichage dans une boucle while des résultats.
+    - affichage dans une boucle while ou foreach des résultats
+
+### Merci à tous!
+
+### EXE2
+
+Dans model/NewsModel.php, créez une fonction qui va charger toutes les News publiées avec le titre, la date de publication, les 250 premiers caractères de l'article (si possible ne pas couper dans les mots ), thename de l'auteur par ordre de publication décroissante. rajouter les catégories si possible (même liens que dans le menu).
+
+
+Affichez ces articles à la place des faux articles ci-dessous
