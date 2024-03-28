@@ -33,19 +33,22 @@ require_once "menu.view.php";
             </div>
         </header>
         <!-- Main Content-->
+        <?php
+        foreach($news as $newsContent):
+            ?>
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
                     <div class="post-preview">
                         <a href="post.html">
-                            <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
-                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
+                            <h2 class="post-title"><?=$newsContent['title']?></h2>
+                            <h3 class="post-subtitle"><?=$newsContent['content']?></h3>
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 24, 2023
+                            <a href="#!"><?=$newsContent['thename']?></a>
+                            on <?=$newsContent['date_published']?>
                         </p>
                     </div>
                     <!-- Divider-->
@@ -87,6 +90,9 @@ require_once "menu.view.php";
                             on July 8, 2023
                         </p>
                     </div>
+                    <?php
+                endforeach;
+                        ?>
                     <!-- Divider-->
                     <hr class="my-4" />
                     <!-- Pager-->

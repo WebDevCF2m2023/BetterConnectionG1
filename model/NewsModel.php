@@ -2,7 +2,7 @@
 
 function getAllNews(PDO $db): array|string
 {
-    $sql = "SELECT news.title, news.content, news.date_published user.thename FROM news JOIN user ON news.idnews=user.iduser ORDER BY user.thename DESC WHERE news.date_published = 1;";
+    $sql = "SELECT news.title, news.content, user.thename, news.date_published FROM news JOIN user ON news.user_iduser=user.iduser WHERE news.is_published = 1 ORDER BY news.date_published DESC ;";
     try{
         $query = $db->query($sql);
 
