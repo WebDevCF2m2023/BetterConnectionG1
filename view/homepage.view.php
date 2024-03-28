@@ -45,9 +45,10 @@ require_once "menu.view.php";
                             <h2 class="post-title"><?=$newsContent['title']?></h2>
                             <h3 class="post-subtitle"><?=substr($newsContent['content'],0,250)?></h3>
                         </a>
-                        <p class="post-meta">                        
+                        <p class="post-meta"> 
+                        <h5 id="<?=$newsContent['slug']?>"><?=$newsContent['slug']?></h5>                      
                             Posted by
-                            <a href="#!"><?=$newsContent['thename']?></a>
+                            <a href="#"><?=$newsContent['thename']?></a>
                             on <?=$newsContent['date_published']?>
                         </p>
                     </div>
