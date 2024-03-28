@@ -6,6 +6,7 @@
 
 require_once("../config.php");
 require_once("../model/CategoryModel.php");
+require_once("../model/NewsModel.php");
 
 try {
     //Instanciation de la connexion PDO
@@ -20,6 +21,7 @@ try {
 
 // chargement des catégories pour le menu
 $menuSlug = getAllCategoriesBySlug($db);
+$news = getAllNews($db);
 
 // var_dump($menuSlug);
 

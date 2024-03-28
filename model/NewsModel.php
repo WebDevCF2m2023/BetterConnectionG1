@@ -1,7 +1,7 @@
 <?php
 
 function getAllNews(PDO $db){
-    $sql = "SELECT news.title, news.content,user.thename, news.date_published 
+    $sql = "SELECT slug, news.title, news.content,user.thename, news.date_published 
     FROM news INNER JOIN user
     ON news.user_iduser = user.iduser
     ORDER BY news.date_published DESC";
