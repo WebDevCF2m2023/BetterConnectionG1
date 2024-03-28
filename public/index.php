@@ -11,6 +11,8 @@ chargement des dépendances
 
 require_once("../config.php");
 require_once("../model/CategoryModel.php");
+require_once("../model/NewsModel.php");
+
 
 /*
 Connexion PDO
@@ -30,7 +32,12 @@ try {
 // chargement des catégories pour le menu
 $menuSlug = getAllCategoriesBySlug($db);
 
-// var_dump($menuSlug);
+if (isset($_GET["showCat"])) {
+    $catSlug = getClippedNewsByCat($db, $_GET["showCat"]);
+
+}else if (isset($_GET["showArt"])) {
+    $artSlug = getArticle($db, $_GET["showArt"]);
+}
 
 /*
 Appel de la vue

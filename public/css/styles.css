@@ -10796,3 +10796,19 @@ header.masthead .post-heading .meta a {
     font-size: 2.25rem;
   }
 }
+
+
+
+#showCats {
+  display: flex;
+  flex-direction: row;
+}
+
+#author {
+  font-size: small;
+}
+
+#dateP {
+  align-self: self-end;
+  font-size: 10px;
+}

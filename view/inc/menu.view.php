@@ -11,13 +11,14 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="./">Accueil</a></li>
                         <?php
                 foreach($menuSlug as $itemMenu):
-                        ?>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="?section=<?=$itemMenu['slug']?>"><?=$itemMenu['title']?></a></li>
-                        <?php
+                        if ($itemMenu["title"] == NULL) { ?>
+                        <?php  }
+                        else { ?>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="?showCat=<?=$itemMenu['slug']?>"><?=$itemMenu['title']?></a></li>
+                        <?php }
                 endforeach;
-                        ?>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                ?>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="?showCat=nouser">Sans Category</a></li>
                     </ul>
                 </div>
             </div>
