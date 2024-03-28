@@ -29,12 +29,12 @@ if ($cleanedSlug == "nouser") {
     ";
  
 }else {
-    $sql = "SELECT SUBSTRING(n.content, 1, 100) AS con, n.slug, n.title, n.date_published, c.title, u.thename
+    $sql = "SELECT SUBSTRING(n.content, 1, 100) AS con, n.slug, n.title AS ntit, n.date_published, c.title, u.thename
             FROM news n
             JOIN news_has_category h ON h.news_idnews = n.idnews
             LEFT JOIN category c ON c.idcategory = h.category_idcategory
             JOIN user u ON u.iduser = n.user_iduser 
-            WHERE c.slug = '$cleanedSlug'  /* une heure perdu pour réaliser que $catSlug doit être en '' */
+            WHERE c.slug = '$cleanedSlug'  /* une heure perdu pour réaliser que $cleanedSlug doit être en '' */
             ";
 }
     try{
