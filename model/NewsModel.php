@@ -13,6 +13,7 @@ function getAllNews(PDO $db): array|string
     LEFT JOIN category c
         ON h.category_idcategory = c.idcategory 
     WHERE n.is_published = 1 
+    GROUP BY n.idnews
     ORDER BY n.date_published DESC ;";
     try{
         $query = $db->query($sql);
