@@ -24,9 +24,8 @@ require_once "menu.view.php";
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
                             <h1>homepage</h1>
-                            <span class="subheading">Petit exercice</span>
-                            <p>Dans model/NewsModel.php, créez une fonction qui va charger toutes les News publiées avec le titre, la date de publication, les 250 premiers caractères de l'article (si possible ne pas couper dans les mots ), thename de l'auteur par ordre de publication décroissante. rajouter les catégories si possible (même liens que dans le menu)</p>
-                            <p>affichez ces articles à la place des faux articles ci-dessous</p>
+                            <span class="subheading">Notre page d'accueil</span>
+                            <p>Du blabla</p>
                         </div>
                     </div>
                 </div>
@@ -36,61 +35,38 @@ require_once "menu.view.php";
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
+                    <?php
+                    foreach($newsHomepage as $item):
+                    ?>
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
-                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
+                        <a href="?detailArticle=<?=$item['slug']?>">
+                            <h2 class="post-title"><?=$item['title']?></h2>
+                            <h5 class="post-subtitle"><?=cutTheText($item['content'],255)?>... Lire la suite</h5>
                         </a>
                         <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 24, 2023
+                            Posté par
+                            <?php
+                            // si pas d'utilisateur ($item['thename'] === null) l'opérateur de coalescence (fusion) ?? fait la même chose que cette condition, on affiche anonyme
+                            $name = $item['thename'] ?? "Anonyme";
+                            $linkName = $item['login'] ?? "#";
+                            ?>
+                            <a href="?author=<?=$linkName?>"><?=$name?></a>
+                            <?php
+                            // pour gérer l'abscence de date de publication
+                            $date = $item['date_published'] ?? "";
+                            // conversion de la date en timestamp
+                            $date = strtotime($date);
+                            // si date n'est pas faux
+                            echo ($date)? " le ".date("d/m/Y \à H\hi",$date): " Pas publié !";
+                            ?>
                         </p>
                     </div>
                     <!-- Divider-->
                     <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 18, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Science has not yet mastered prophecy</h2>
-                            <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on August 24, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Failure is not an option</h2>
-                            <h3 class="post-subtitle">Many say exploration is part of our destiny, but it’s actually our duty to future generations.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on July 8, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+                    <?php
+                    endforeach;
+                    ?>
                 </div>
             </div>
         </div>
