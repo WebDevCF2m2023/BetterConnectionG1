@@ -32,37 +32,42 @@ require_once "menu.view.php";
                 </div>
             </div>
         </header>
-        <!-- Main Content-->
-        <?php
-        foreach($news as $newsContent):
-            ?>
+        <!-- Main Content-->        
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-12">
+                <?php
+                foreach($news as $newsContent):
+                ?>
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="post.html">
+                        <a href="?detailArticle=<?=$newsContent['slug']?>">
                             <h2 class="post-title"><?=$newsContent['title']?></h2>
-                            <h3 class="post-subtitle"><?=substr($newsContent['content'],0,250)?></h3>
+                            <h4 class="post-subtitle"><?=cutTheText($newsContent['content'],255)?>... Lire la suite</h4>
                         </a>
                         <p class="post-meta"> 
                         <h5 id="<?=$newsContent['slug']?>"><?=$newsContent['slug']?></h5>                      
                             Posted by
-                            <a href="#"><?=$newsContent['thename']?></a>
-                            on <?=$newsContent['date_published']?>
-                            <?=$newsContent['categ_title']?>
-                            <?=$newsContent['categ_slug']?>
+                            <?php
+                            $name = $newsContent['thename'] ?? "Anonyme";
+                            $linkName = $newsContent['login'] ?? "#";
+                            ?>
+                            <a href="?author=<?=$linkName?>"><?=$name?></a>
+                            <?php
+                            $date = $newsContent['date_published'] ?? "";
+                            $date = strtotime($date);
+                            echo ($date)? " le " .date("d/m/Y \à H\hi", $date): " Pas publié !";
+                            ?>
                         </p>
                     </div>
                     
                     <!-- Divider-->
                     <hr class="my-4" />
                     <!-- Post preview-->                   
-                    <?php
+                <?php
                 endforeach;
-                        ?>                 
-                    <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+                ?>                 
+                   
                 </div>
             </div>
         </div>
