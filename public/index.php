@@ -12,7 +12,7 @@ chargement des dépendances
 require_once("../config.php");
 require_once("../model/CategoryModel.php");
 require_once("../model/NewsModel.php");
-require_once("../model/NewsModel.php");
+
 
 /*
 Connexion PDO
