@@ -32,7 +32,7 @@ try {
 $menuSlug = getAllCategoriesBySlug($db);
 $news = getAllNews($db);
 
-//var_dump($news);
+var_dump($news);
 
 /*
 Appel de la vue

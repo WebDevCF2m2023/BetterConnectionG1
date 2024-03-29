@@ -50,6 +50,8 @@ require_once "menu.view.php";
                             Posted by
                             <a href="#"><?=$newsContent['thename']?></a>
                             on <?=$newsContent['date_published']?>
+                            <?=$newsContent['categ_title']?>
+                            <?=$newsContent['categ_slug']?>
                         </p>
                     </div>
                     
