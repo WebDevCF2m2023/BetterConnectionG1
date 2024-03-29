@@ -34,7 +34,6 @@ $menuSlug = getAllCategoriesBySlug($db);
 
 if (isset($_GET["showCat"])) {
     $catSlug = getClippedNewsByCat($db, $_GET["showCat"]);
-
 }else if (isset($_GET["showArt"])) {
     $artSlug = getArticle($db, $_GET["showArt"]);
 }
