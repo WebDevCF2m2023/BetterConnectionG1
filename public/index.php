@@ -11,6 +11,7 @@ chargement des dépendances
 
 require_once("../config.php");
 require_once("../model/CategoryModel.php");
+require_once("../model/NewsModel.php");
 
 /*
 Connexion PDO
@@ -30,7 +31,11 @@ try {
 // chargement des catégories pour le menu
 $menuSlug = getAllCategoriesBySlug($db);
 
+// chargement des news pour la page d'accueil
+$newsHomepage = getAllNewsHomePage($db);
+
 // var_dump($menuSlug);
+var_dump($newsHomepage);
 
 /*
 Appel de la vue
