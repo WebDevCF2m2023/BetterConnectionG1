@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <title>BetterConnection | homepage</title>
+    <title>BetterConnection | <?=$categoryBySection["title"]?></title>
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -16,6 +16,7 @@
 <body>
     <?php
 require_once "menu.view.php";
+
     ?>
         <!-- Page Header-->
         <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
@@ -23,9 +24,19 @@ require_once "menu.view.php";
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>homepage</h1>
-                            <span class="subheading">Notre page d'accueil</span>
-                            <p>Du blabla</p>
+                            <?php 
+                                $i=0;
+                                foreach($categoryBySection as $catSect) { 
+                                    
+
+                                    if($i < 1) {
+                                        $i++;
+                                        ?>
+                            <h1><?=$catSect["ctit"]?></h1>
+                            <?php } 
+                            ?>
+                            <span class="subheading"><?= $catSect["descript"]?></span>
+                            <p><?php }?></p>
                         </div>
                     </div>
                 </div>
@@ -36,38 +47,43 @@ require_once "menu.view.php";
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <?php
-                    foreach($newsHomepage as $item):
+       
+                            if(!count($newsCategoryBySection)) { ?><p>Pas encore d'articles sur ce category</p> <?php }
+                            foreach($newsCategoryBySection as $section):     
+                                    if($section["other_slug"] == $_GET["section"]) {
                     ?>
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="?detailArticle=<?=$item['slug']?>">
-                            <h2 class="post-title"><?=$item['title']?></h2>
-                            <h5 class="post-subtitle"><?=cutTheText($item['content'],255)?>... Lire la suite</h5>
+                        <a href="?detailArticle=<?=$section['slug']?>">
+                            <h2 class="post-title"><?=$section['title']?></h2>
+                            <h5 class="post-subtitle"><?=cutTheText($section['content'],255)?>... Lire la suite</h5>
                         </a><div>
                         <?php
+                        }
                         // Pour les catégories, on va devoir couper les chaînes de caractères quand on trouve |||
-                        $categ_slug = explode("|||",$item['categ_slug']);
-                        $categ_title = explode("|||",$item['categ_title']);
+                       // $categ_slug = explode("|||",$section['categ_slug']);
+                       // $categ_title = explode("|||",$section['categ_title']);
                         // tant qu'on a des valeurs
-                        foreach($categ_slug as $key => $value):
+                     //   foreach($categ_slug as $key => $value):
                             // on affiche la valeur de la variable où on fait la boucle dans le lien et la variable contenant les titres en utilisant la clef correspondante
                         ?>
-                        <a href="?section=<?=$value?>"><?=$categ_title[$key]?></a> | 
+                        
                         <?php
                         endforeach;
+                    //    endforeach;
                         ?>
                     </div>
                         <p class="post-meta">
                             Posté par
                             <?php
-                            // si pas d'utilisateur ($item['thename'] === null) l'opérateur de coalescence (fusion) ?? fait la même chose que cette condition, on affiche anonyme
-                            $name = $item['thename'] ?? "Anonyme";
-                            $linkName = $item['login'] ?? "#";
+                            // si pas d'utilisateur ($section['thename'] === null) l'opérateur de coalescence (fusion) ?? fait la même chose que cette condition, on affiche anonyme
+                            $name = $section['thename'] ?? "Anonyme";
+                            $linkName = $section['login'] ?? "#";
                             ?>
                             <a href="?author=<?=$linkName?>"><?=$name?></a>
                             <?php
                             // pour gérer l'abscence de date de publication
-                            $date = $item['date_published'] ?? "";
+                            $date = $section['date_published'] ?? "";
                             // conversion de la date en timestamp
                             $date = strtotime($date);
                             // si date n'est pas faux
@@ -78,7 +94,6 @@ require_once "menu.view.php";
                     <!-- Divider-->
                     <hr class="my-4" />
                     <?php
-                    endforeach;
                     ?>
                 </div>
             </div>

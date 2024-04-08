@@ -74,3 +74,57 @@ function cutTheText(string $text, int $nbCharacter=200, bool $cutWord = false): 
 
     return $output;
 }
+
+
+
+
+function getNewsBySection(PDO $db, $catSlug): array|string
+{
+    $cleanedSlug = htmlspecialchars(strip_tags(trim($catSlug)), ENT_QUOTES);
+    $sql = "SELECT n.`title`, n.`slug`, SUBSTRING(n.`content`, 1, 260) AS content, n.`date_published`, 
+                   u.`login`, u.`thename`, c.title AS other_title, c.slug AS other_slug,
+                
+                   GROUP_CONCAT(c.`title` SEPARATOR '|||') AS categ_title,
+                   GROUP_CONCAT(c.`slug` SEPARATOR '|||') AS categ_slug 
+	        FROM `news` n
+	        LEFT JOIN `user` u
+	        	ON n.`user_iduser` = u.`iduser`
+            LEFT JOIN `news_has_category` h
+                ON h.`news_idnews` = n.`idnews`
+            LEFT JOIN `category` c
+                ON c.`idcategory` = h.category_idcategory
+    /*            WHERE c.slug = ? */
+            GROUP BY n.`idnews`    
+            ORDER BY n.`date_published` DESC
+
+        ;";
+
+try{
+    $query = $db->prepare($sql);
+  //  $query->bindValue(1,$cleanedSlug);
+
+    $query->execute();
+    $results = $query->fetchAll();
+    $query->closeCursor();
+    return $results;
+    }catch(Exception $e){
+        return $e->getMessage();
+    }
+    try{
+    
+    $query = $db->query($sql);
+
+    // si pas de résultats () : string
+    if(!$query->rowCount()) return "Pas encore de message";
+    
+    $result = $query->fetchAll();
+
+    $query->closeCursor();
+
+    return $result; // : array
+
+    }catch(Exception $e){
+        return $e->getMessage(); // : string
+    }
+
+}

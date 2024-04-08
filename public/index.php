@@ -38,6 +38,8 @@ if(isset($_GET['section'])){
         /*
         Appel de la vue
         */
+        $categoryBySection = getCatBySection($db, $_GET["section"]);
+        $newsCategoryBySection = getNewsBySection($db, $_GET["section"]);
         include_once "../view/section.view.php";
 }else{
 /*
