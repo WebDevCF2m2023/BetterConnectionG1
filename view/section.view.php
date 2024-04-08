@@ -25,6 +25,7 @@ require_once "menu.view.php";
                         <div class="site-heading">
                             <h1>homepage</h1>
                             <span class="subheading">Notre page d'accueil</span>
+                            <p>Du blabla</p>
                         </div>
                     </div>
                 </div>
