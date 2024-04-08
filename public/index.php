@@ -54,6 +54,12 @@ if(isset($_GET['section'])){
             exit();
         }
 
+        // Chargement des news de la catégorie actuelle via son Slug
+        $newsIntoSection = getNewsFromCategorySlug($db, $categ);
+
+        if(empty($newsIntoSection)){
+            $message = "Pas encore d'article dans cette section";
+        }
 
         // var_dump($category);
         /*

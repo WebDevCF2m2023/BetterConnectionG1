@@ -34,9 +34,9 @@ require_once "menu.view.php";
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <h2>Que les news qui sont dans la catégorie</h2>
                     <?php
-                    if(isset($message)) echo $message;
+                    if(isset($message)) echo "<hr><h2>$message</h2>";
+                    
                     foreach($newsIntoSection as $item):
                     ?>
                     <!-- Post preview-->

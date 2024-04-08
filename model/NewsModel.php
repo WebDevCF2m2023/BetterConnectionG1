@@ -50,6 +50,11 @@ function getAllNewsHomePage(PDO $connect): array|string
 
 }
 
+function getNewsFromCategorySlug(PDO $db, string $slug): array|string
+{
+    return [];
+}
+
 /**
  * cutTheText
  *
