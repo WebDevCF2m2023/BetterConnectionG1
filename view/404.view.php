@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <title>BetterConnection | homepage</title>
+    <title>BetterConnection | 404</title>
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -23,68 +23,13 @@ require_once "menu.view.php";
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>homepage</h1>
-                            <span class="subheading">Notre page d'accueil</span>
+                            <h1>404</h1>
+                            <span class="subheading"><?=$message?></span>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-        <!-- Main Content-->
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <?php
-                    foreach($newsHomepage as $item):
-                    ?>
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="?detailArticle=<?=$item['slug']?>">
-                            <h2 class="post-title"><?=$item['title']?></h2>
-                            <h5 class="post-subtitle"><?=cutTheText($item['content'],255)?>... Lire la suite</h5>
-                        </a><div>
-                        <?php
-                    // si on a des rubriques
-                    if(!is_null($item['categ_slug'])):
-                        // Pour les catégories, on va devoir couper les chaînes de caractères quand on trouve |||
-                        $categ_slug = explode("|||",$item['categ_slug']);
-                        $categ_title = explode("|||",$item['categ_title']);
-                        // tant qu'on a des valeurs
-                        foreach($categ_slug as $key => $value):
-                            // on affiche la valeur de la variable où on fait la boucle dans le lien et la variable contenant les titres en utilisant la clef correspondante
-                        ?>
-                        <a href="?section=<?=$value?>"><?=$categ_title[$key]?></a> | 
-                        <?php
-                        endforeach;
-                    endif;
-                        ?>
-                    </div>
-                        <p class="post-meta">
-                            Posté par
-                            <?php
-                            // si pas d'utilisateur ($item['thename'] === null) l'opérateur de coalescence (fusion) ?? fait la même chose que cette condition, on affiche anonyme
-                            $name = $item['thename'] ?? "Anonyme";
-                            $linkName = $item['login'] ?? "#";
-                            ?>
-                            <a href="?author=<?=$linkName?>"><?=$name?></a>
-                            <?php
-                            // pour gérer l'abscence de date de publication
-                            $date = $item['date_published'] ?? "";
-                            // conversion de la date en timestamp
-                            $date = strtotime($date);
-                            // si date n'est pas faux
-                            echo ($date)? " le ".date("d/m/Y \à H\hi",$date): " Pas publié !";
-                            ?>
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <?php
-                    endforeach;
-                    ?>
-                </div>
-            </div>
-        </div>
         <!-- Footer-->
         <footer class="border-top">
             <div class="container px-4 px-lg-5">

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <title>BetterConnection | homepage</title>
+    <title>BetterConnection | <?=$category['title']?></title>
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -23,9 +23,8 @@ require_once "menu.view.php";
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>homepage</h1>
-                            <span class="subheading">Notre page d'accueil</span>
-                            <p>Du blabla</p>
+                            <h1><?=$category['title']?></h1>
+                            <span class="subheading"><?=$category['description']?></span>
                         </div>
                     </div>
                 </div>
@@ -35,8 +34,10 @@ require_once "menu.view.php";
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
+                    <h2>Que les news qui sont dans la catégorie</h2>
                     <?php
-                    foreach($newsHomepage as $item):
+                    if(isset($message)) echo $message;
+                    foreach($newsIntoSection as $item):
                     ?>
                     <!-- Post preview-->
                     <div class="post-preview">

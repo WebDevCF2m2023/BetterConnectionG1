@@ -34,7 +34,28 @@ $menuSlug = getAllCategoriesBySlug($db);
 // router temporaire
 if(isset($_GET['section'])){
 
+        // récupération/ protection de la variable slug de category
+        $categ = htmlspecialchars(strip_tags(trim($_GET['section'])),ENT_QUOTES);
 
+        // chargement de la catégorie via le slug
+        $category = getCategoryBySlug($db,$categ);
+
+        // si on récupère du texte
+        if(is_string($category)){
+            // on a une erreur SQL, on peut l'afficher (pas nécessaire)
+            $message = $category;
+        // si on récupère false, la rubrique n'existe pas    
+        }elseif($category===false){
+            $message = "Rubrique inconnue";
+            include_once "../view/404.view.php";
+            // Fermeture de connexion
+            $db = null;
+            // arrêt du script
+            exit();
+        }
+
+
+        // var_dump($category);
         /*
         Appel de la vue
         */
