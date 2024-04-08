@@ -43,7 +43,20 @@ require_once "menu.view.php";
                         <a href="?detailArticle=<?=$item['slug']?>">
                             <h2 class="post-title"><?=$item['title']?></h2>
                             <h5 class="post-subtitle"><?=cutTheText($item['content'],255)?>... Lire la suite</h5>
-                        </a>
+                        </a><div>
+                        <?php
+                        // Pour les catégories, on va devoir couper les chaînes de caractères quand on trouve |||
+                        $categ_slug = explode("|||",$item['categ_slug']);
+                        $categ_title = explode("|||",$item['categ_title']);
+                        // tant qu'on a des valeurs
+                        foreach($categ_slug as $key => $value):
+                            // on affiche la valeur de la variable où on fait la boucle dans le lien et la variable contenant les titres en utilisant la clef correspondante
+                        ?>
+                        <a href="?section=<?=$value?>"><?=$categ_title[$key]?></a> | 
+                        <?php
+                        endforeach;
+                        ?>
+                    </div>
                         <p class="post-meta">
                             Posté par
                             <?php
