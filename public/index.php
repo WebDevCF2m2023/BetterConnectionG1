@@ -35,7 +35,7 @@ $menuSlug = getAllCategoriesBySlug($db);
 $newsHomepage = getAllNewsHomePage($db);
 
 // var_dump($menuSlug);
-var_dump($newsHomepage);
+// var_dump($newsHomepage);
 
 /*
 Appel de la vue
