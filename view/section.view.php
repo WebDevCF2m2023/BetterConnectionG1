@@ -56,6 +56,7 @@ require_once "menu.view.php";
                         <a href="?section=<?=$value?>"><?=$categ_title[$key]?></a> | 
                         <?php
                         endforeach;
+                        
                         ?>
                     </div>
                         <p class="post-meta">

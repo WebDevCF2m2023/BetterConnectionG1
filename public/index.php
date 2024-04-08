@@ -56,7 +56,7 @@ if(isset($_GET['section'])){
 
         // Chargement des news de la catégorie actuelle via son Slug
         $newsIntoSection = getNewsFromCategorySlug($db, $categ);
-
+        
         if(empty($newsIntoSection)){
             $message = "Pas encore d'article dans cette section";
         }
