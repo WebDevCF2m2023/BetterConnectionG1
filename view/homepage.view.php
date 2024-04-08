@@ -44,6 +44,8 @@ require_once "menu.view.php";
                             <h5 class="post-subtitle"><?=cutTheText($item['content'],255)?>... Lire la suite</h5>
                         </a><div>
                         <?php
+                    // si on a des rubriques
+                    if(!is_null($item['categ_slug'])):
                         // Pour les catégories, on va devoir couper les chaînes de caractères quand on trouve |||
                         $categ_slug = explode("|||",$item['categ_slug']);
                         $categ_title = explode("|||",$item['categ_title']);
@@ -54,6 +56,7 @@ require_once "menu.view.php";
                         <a href="?section=<?=$value?>"><?=$categ_title[$key]?></a> | 
                         <?php
                         endforeach;
+                    endif;
                         ?>
                     </div>
                         <p class="post-meta">

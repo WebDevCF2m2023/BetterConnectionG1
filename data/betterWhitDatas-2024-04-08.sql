@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 22 mars 2024 à 10:38
+-- Généré le : lun. 08 avr. 2024 à 12:49
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.2.0
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `description` varchar(400) DEFAULT NULL,
   PRIMARY KEY (`idcategory`),
   UNIQUE KEY `slug_UNIQUE` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `category`
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   PRIMARY KEY (`idnews`),
   UNIQUE KEY `slug_UNIQUE` (`slug`),
   KEY `fk_news_user1_idx` (`user_iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `news`
@@ -77,7 +77,10 @@ CREATE TABLE IF NOT EXISTS `news` (
 INSERT INTO `news` (`idnews`, `title`, `slug`, `content`, `date_created`, `date_published`, `is_published`, `user_iduser`) VALUES
 (1, 'Étoile', 'etoile', 'Une étoile est un corps céleste plasmatique qui rayonne sa propre lumière par réactions de fusion nucléaire, ou des corps qui ont été dans cet état à un stade de leur cycle de vie, comme les naines blanches ou les étoiles à neutrons. \r\n\r\nCela signifie qu\'ils doivent posséder une masse minimale pour que les conditions de température et de pression au sein de la région centrale — le cœur — permettent l\'amorce et le maintien de ces réactions nucléaires, seuil en deçà duquel on parle d\'objets substellaires. \r\n\r\nLes masses possibles des étoiles s\'étendent de 0,085 masse solaire à une centaine de masses solaires. La masse détermine la température et la luminosité de l\'étoile.\r\n\r\nLa plupart des étoiles se situent sur la séquence principale du diagramme de Hertzsprung-Russell, où les étoiles produisent leur énergie et leur rayonnement par conversion de l\'hydrogène en hélium, par des mécanismes de fusion nucléaire comme le cycle carbone-azote-oxygène ou la chaîne proton-proton.\r\n\r\nPendant une grande partie de son existence, une étoile est en équilibre hydrostatique sous l\'action de deux forces qui s\'opposent : la gravitation, qui tend à contracter et faire s\'effondrer l\'étoile, et la pression cinétique (avec la pression de rayonnement pour les étoiles massives), régulée et maintenue par les réactions de fusion nucléaire, qui tend au contraire à dilater l\'astre. \r\n\r\nÀ la fin de cette phase, marquée par la consommation de la totalité de l\'hydrogène de son cœur, les étoiles de la séquence principale se dilatent et évoluent en étoiles géantes, qui obtiennent leur énergie d\'autres réactions nucléaires, comme la fusion de l\'hélium en carbone et oxygène.', '2024-03-22 06:38:34', '2024-03-22 06:38:34', 1, 1),
 (2, 'Planète naine', 'planete-naine', 'En astronomie, une planète naine est un objet céleste du Système solaire de classe intermédiaire entre une planète et un petit corps du Système solaire. Le terme est adopté le 24 août 2006 par l\'Union astronomique internationale (UAI) après un débat afin d\'éclaircir la classification des objets en orbite autour du Soleil. Celui-ci est notamment précipité par la découverte d\'Éris, un objet de taille similaire à Pluton — alors considérée comme une planète — et devant la perspective de découvrir à l\'avenir de nombreux autres objets d\'une taille pouvant faire d\'eux des planètes.\r\n\r\nPlus précisément, l\'UAI définit une planète naine comme « un corps céleste qui (a) est en orbite autour du Soleil, (b) a une masse suffisante pour que sa gravité l’emporte sur les forces de cohésion du corps solide et le maintienne en équilibre hydrostatique, sous une forme presque sphérique, (c) n’a pas éliminé tout corps susceptible de se déplacer sur une orbite proche, (d) n’est pas un satellite ».\r\n\r\nInitialement, trois planètes naines étaient désignées — Cérès, Pluton et Éris —, auxquelles se sont ensuite ajoutées en 2008 Hauméa et Makémaké, ce qui porte à cinq le nombre d\'objets reconnus comme planètes naines par l\'UAI. Les objets connus les plus susceptibles d\'être ajoutés à cette catégorie à l\'avenir sont Gonggong, Quaoar, Sedna et Orcus. Le nombre total de planètes naines dans le Système solaire est inconnu car vérifier si un corps est en équilibre hydrostatique nécessite au moins un survol par une sonde spatiale, ce qui n\'a été le cas que pour Cérès et Pluton. De nombreux gros objets transneptuniens ont néanmoins des satellites naturels, ce qui permet de précisément déterminer leur masse et donc d\'estimer leur densité.\r\n\r\nSi la nécessité de distinguer les planètes et une autre catégorie d\'objets incluant Pluton apparaît clairement depuis 2000 dans les travaux d\'Alan Stern, Harold F. Levison, Steven Soter ou Jean-Luc Margot, de nombreux astronomes — notamment américains dont Alan Stern — s\'opposent au moins initialement à l\'introduction de ce nouveau terme en raison de la perte du statut de planète pour Pluton.', '2024-03-22 06:48:55', '2024-03-22 06:50:23', 1, 2),
-(3, 'Big Bang', 'big-bang', 'Le Big Bang (« Grand Boum ») est un modèle cosmologique utilisé par les scientifiques pour décrire l\'origine et l\'évolution de l\'Univers.\r\n\r\nDe façon générale, le terme « Big Bang » est associé à toutes les théories qui décrivent notre Univers comme issu d\'une dilatation rapide. \r\n\r\nPar extension, il est également associé à cette époque dense et chaude qu’a connue l’Univers il y a 13,8 milliards d’années, sans que cela préjuge de l’existence d’un « instant initial » ou d’un commencement à son histoire. \r\nLa comparaison avec une explosion, souvent employée, est elle aussi impropre.\r\n\r\nLe concept a été initialement proposé en 1927 par l\'astrophysicien et chanoine catholique belge Georges Lemaître, qui décrivait dans les grandes lignes l’expansion de l\'Univers, avant que celle-ci soit mise en évidence par l\'astronome américain Edwin Hubble en 1929. \r\n\r\nCe modèle est désigné pour la première fois sous le terme ironique de « Big Bang » lors d’une émission de la BBC, The Nature of Things le 28 mars 1949 (dont le texte fut publié en 1950), par le physicien britannique Fred Hoyle, qui lui-même préférait les modèles d\'état stationnaire.', '2024-03-22 11:08:21', NULL, 0, NULL);
+(3, 'Big Bang', 'big-bang', 'Le Big Bang (« Grand Boum ») est un modèle cosmologique utilisé par les scientifiques pour décrire l\'origine et l\'évolution de l\'Univers.\r\n\r\nDe façon générale, le terme « Big Bang » est associé à toutes les théories qui décrivent notre Univers comme issu d\'une dilatation rapide. \r\n\r\nPar extension, il est également associé à cette époque dense et chaude qu’a connue l’Univers il y a 13,8 milliards d’années, sans que cela préjuge de l’existence d’un « instant initial » ou d’un commencement à son histoire. \r\nLa comparaison avec une explosion, souvent employée, est elle aussi impropre.\r\n\r\nLe concept a été initialement proposé en 1927 par l\'astrophysicien et chanoine catholique belge Georges Lemaître, qui décrivait dans les grandes lignes l’expansion de l\'Univers, avant que celle-ci soit mise en évidence par l\'astronome américain Edwin Hubble en 1929. \r\n\r\nCe modèle est désigné pour la première fois sous le terme ironique de « Big Bang » lors d’une émission de la BBC, The Nature of Things le 28 mars 1949 (dont le texte fut publié en 1950), par le physicien britannique Fred Hoyle, qui lui-même préférait les modèles d\'état stationnaire.', '2024-03-22 11:08:21', '2024-04-08 14:36:29', 1, 3),
+(4, 'Thomas Pesquet interdit de vol à cause de sa barbe', 'thomas-pesquet-interdit-de-vol-a-cause-de-sa-barbe', 'Pour des raisons de sécurité, barbes garnies et voyages dans l’espace ne font pas bon ménage. Celle que Thomas Pesquet se laisse pousser risque de mettre un frein à sa carrière spatiale. Problème, l’astronaute a pris des engagements ailleurs.\r\n\r\nMise à jour du 2 avril 2024 : Cet article est un poisson d\'avril. Pour vous en convaincre, remarquez l\'écusson brodé sur le blouson de Thomas Pesquet.\r\n\r\n« Il faut choisir. Soit on est acteur, soit on est astronaute » avertit un dirigeant de l’Agence spatiale européenne (ESA). Le message vaut pour Thomas Pesquet. Discret ces derniers mois, le plus connu des astronautes français a fait une apparition publique fin mars, sous un nouveau look. D’habitude rasé de près, le voilà qui arbore une épaisse barbe. Aussi seyant soit-il, ce choix pour la pilosité faciale pose un problème. Contrairement aux moustaches, les barbes sont interdites dans l’espace. En porter une met à risque la bonne étanchéité du casque des différentes combinaisons que doivent enfiler les astronautes pendant leur mission.\r\n\r\nEn 1984, ce point de sécurité avait justement posé problème à l’océanographe Paul Scully-Power, premier astronaute Australien à gagner l’espace. Avant de monter dans la navette Challenger de la mission STS-41-G, la Nasa lui avait ordonné de passer chez le barbier. Devant l’obstination du scientifique, et parce qu’il ne s’agissait que d’un voyage de huit jours, l’Agence spatiale américaine avait finalement cédé. « Oui mais c’était les années 1980, tout était beaucoup plus cool, explique-t-on à l’ESA. En 2024, la barbe, tu la rases où tu ne pars pas ».\r\n\r\nPremier rôle au cinéma\r\n\r\nAlors, nous direz-vous, pourquoi Thomas Pesquet ne passe-t-il pas simplement le rasoir bic ? Il y a un hic. L’astronaute a pris d’importants engagements pour son premier rôle au cinéma. Et pas dans n’importe quel film. Fin 2024, il rejoindra le tournage de l’adaptation cinématographique de « Tintin on a marché sur la Lune ». \r\n\r\nLa dernière grosse production d’Alexandre Astier est programmée pour sortir en salles début 2026 – dans la foulée de la mission Artemis 2 qui doit envoyer des astronautes autour de la Lune quelques mois plus tôt.\r\n\r\nhttps://www.cieletespace.fr/actualites/thomas-pesquet-interdit-de-vol-a-cause-de-sa-barbe', '2024-04-08 14:28:54', '2024-04-08 14:31:05', 1, 2),
+(5, 'Pourquoi l’étoile mystérieuse de la Couronne boréale va bientôt apparaître', 'pourquoi-letoile-mysterieuse-de-la-couronne-boreale-va-bientot-apparaitre', 'L’étoile binaire T Coronae Borealis, dont on attend le spectaculaire sursaut d’un moment à l’autre, pose plusieurs énigmes.\r\n\r\nDes questions auxquelles les astronomes vont tenter de répondre lors de cet événement attendu depuis 80 ans.\r\n\r\nL’étoile mystérieuse. Ainsi devrait-on surnommer T Coronae Borealis, qu’un spectaculaire sursaut lumineux devrait très bientôt rendre aisément visible à l’œil nu. Car s’ils savent que cette étoile est une nova récurrente qui entre en éruption tous les 80 ans environ, ils ignorent bien des choses sur les raisons de son comportement. \r\n\r\nOr l’astre représente une véritable aubaine d’en apprendre un peu plus sur le mécanisme qui la fait changer d’éclat de manière récurrente : « Elle se trouve à 2979 années-lumière et c’est l’une des novas les plus proches, peut-être la plus proche », explique Bradley Schaefer, astronome à l’université de Louisiane, spécialiste de la question.\r\n\r\nhttps://www.cieletespace.fr/actualites/pourquoi-l-etoile-mysterieuse-de-la-couronne-boreale-va-bientot-apparaitre', '2024-04-08 14:33:43', '2024-04-08 14:35:35', 1, 1),
+(6, 'Carte du ciel du jour', 'carte-du-ciel-du-jour', 'Repérez les principales étoiles, constellations et planètes et observez les mouvements du ciel ! Cette carte est réglable à la date et à l’heure de votre choix.\r\n\r\nObservez la ronde des étoiles avec cette carte du ciel\r\nLes étoiles sont regroupées en constellations que vous pouvez apprendre à identifier. Commencez par la Grande Ourse qui est facile à reconnaître et visible toute l’année. Repérez-la sur la carte et dans le vrai ciel. Progressez ensuite de constellation en constellation.\r\n\r\nAu fil des heures, le ciel paraît tourner autour de l’étoile Polaire au centre de la carte. C’est la rotation de la Terre sur elle-même qui fait défiler le ciel et provoque les levers et couchers des astres. Simulez ce mouvement en changeant l’heure de la carte du ciel ou en déplaçant légèrement le curseur d’animation.\r\n\r\nAu fil des jours et des mois, la course de la Terre autour du Soleil nous fait voir une portion de ciel différente. C’est un deuxième mouvement de défilement qui se combine avec le premier. Les étoiles reviennent ainsi chaque soir au même endroit du ciel avec un peu d’avance. Constatez-le en utilisant le bouton jour suivant ou en poussant le curseur d’animation à son avant-dernier cran.\r\n\r\n<a href=\"https://www.stelvision.com/astro/carte-ciel/\" target=\"_blank\">stelvision</a>\r\n', '2024-04-08 14:40:49', '2024-04-08 14:41:32', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -92,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `news_has_category` (
   PRIMARY KEY (`news_idnews`,`category_idcategory`),
   KEY `fk_news_has_category_category1_idx` (`category_idcategory`),
   KEY `fk_news_has_category_news_idx` (`news_idnews`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `news_has_category`
@@ -101,9 +104,19 @@ CREATE TABLE IF NOT EXISTS `news_has_category` (
 INSERT INTO `news_has_category` (`news_idnews`, `category_idcategory`) VALUES
 (1, 1),
 (2, 1),
+(4, 1),
+(5, 1),
+(4, 2),
 (1, 3),
 (2, 4),
-(1, 5);
+(1, 5),
+(5, 5),
+(3, 6),
+(5, 6),
+(3, 7),
+(5, 7),
+(3, 8),
+(5, 8);
 
 -- --------------------------------------------------------
 
@@ -123,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`iduser`),
   UNIQUE KEY `login_UNIQUE` (`login`),
   UNIQUE KEY `theemail_UNIQUE` (`theemail`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `user`
@@ -132,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`iduser`, `login`, `pwd`, `thename`, `theemail`, `useruniqid`, `thestatus`) VALUES
 (1, 'Mikhawa', '$2y$10$inJ2.CnUt54aJm6uVIQtEek8uXFJGFQOs11wwo0dC5qq..Oz4lrQW', 'Michaël Pitz', 'mike@cf2m.be', '65fd1a8bb88968.13880258', 1),
 (2, 'PierreSandron', '$2y$10$FPTej0D0P8isOdh8/2/gNOyJ6wSPphVE.zix0BCGhiRui3o4AlPR.', 'Pierre Sandron', 'pierre@cf2m.be', '65fd1ad7271560.22515332', 1),
-(3, 'Magib', '$2y$10$qwlMKD.PgA.Dllo.AxytcegjJnI6jG/s1/WO7L8aBlAi9Kij5aL1u', 'The Magib', 'magib@cf2m.be', '65fd5d60ac3ef9.93917609', 0);
+(3, 'Magib', '$2y$10$qwlMKD.PgA.Dllo.AxytcegjJnI6jG/s1/WO7L8aBlAi9Kij5aL1u', 'The Magib', 'magib@cf2m.be', '65fd5d60ac3ef9.93917609', 1);
 
 --
 -- Contraintes pour les tables déchargées
