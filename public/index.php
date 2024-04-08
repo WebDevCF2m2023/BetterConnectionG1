@@ -31,16 +31,31 @@ try {
 // chargement des catégories pour le menu
 $menuSlug = getAllCategoriesBySlug($db);
 
-// chargement des news pour la page d'accueil
-$newsHomepage = getAllNewsHomePage($db);
+// router temporaire
+if(isset($_GET['section'])){
 
-// var_dump($menuSlug);
-// var_dump($newsHomepage);
 
+        /*
+        Appel de la vue
+        */
+        include_once "../view/section.view.php";
+}else{
 /*
-Appel de la vue
+homepage
 */
-include_once "../view/homepage.view.php";
+        
+
+        // chargement des news pour la page d'accueil
+        $newsHomepage = getAllNewsHomePage($db);
+
+        // var_dump($menuSlug);
+        // var_dump($newsHomepage);
+
+        /*
+        Appel de la vue
+        */
+        include_once "../view/homepage.view.php";
+}
 
 // Fermeture de connexion
 $db = null;
