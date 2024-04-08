@@ -43,7 +43,7 @@ Merci au site https://fr.wikipedia.org/wiki/Astronomie pour les exemples d'artic
 - Création du contrôleur frontal
     - Import du fichier `config.php`
     - Création d'une connexion PDO avec try catch
-    - requête qui séléctionne tous les articles avec les auteurs (si existant)
+    - requête qui sélectionne tous les articles avec les auteurs (si existant)
     - affichage dans une boucle while ou foreach des résultats
 
 ### Merci à tous!
