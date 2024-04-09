@@ -55,8 +55,8 @@ function getNewsFromCategorySlug(PDO $db, string $slug): array|string
     $cleanedSlug = htmlspecialchars(strip_tags(trim($slug)), ENT_QUOTES);
     $sql = "SELECT n.`title`, n.`slug`, SUBSTRING(n.`content`, 1, 260) AS content, n.`date_published`, u.`login`, u.`thename`, c.`title` AS cattitle,
     c.`slug`  AS catslug,
-    GROUP_CONCAT(DISTINCT c.`title` ORDER BY c.`title` SEPARATOR '|||') AS categ_title,
-    GROUP_CONCAT(DISTINCT c.`slug` ORDER BY c.`slug` SEPARATOR '|||') AS categ_slug
+    GROUP_CONCAT(c.`title` ORDER BY c.`title` SEPARATOR '|||') AS categ_title,
+    GROUP_CONCAT(c.`slug` ORDER BY c.`slug` SEPARATOR '|||') AS categ_slug
     FROM `news` n
     LEFT JOIN `user` u ON n.`user_iduser` = u.`iduser`
     JOIN `news_has_category` h ON h.`news_idnews` = n.`idnews`
