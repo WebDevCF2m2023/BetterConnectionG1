@@ -46,7 +46,7 @@ Merci au site https://fr.wikipedia.org/wiki/Astronomie pour les exemples d'artic
     - requête qui sélectionne tous les articles avec les auteurs (si existant)
     - affichage dans une boucle while ou foreach des résultats
 
-### Merci à tous!
+### Merci à tous !
 
 ### EXE2
 
